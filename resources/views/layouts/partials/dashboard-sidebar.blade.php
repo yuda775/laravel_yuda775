@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -26,13 +26,13 @@
         Interface
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('hospitals.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('hospitals.index') }}">
             <i class="fas fa-fw fa-hospital"></i>
             <span>Rumah Sakit</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('patients.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('patients.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Pasien</span></a>
