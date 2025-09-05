@@ -26,6 +26,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
+            Alert::success('Login Berhasil', 'Selamat datang Kembali!')->autoClose(2000);
             return redirect()->intended('/hospitals');
         }
 
@@ -40,7 +41,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        // Opsional (kalau pakai realrashid/sweet-alert)
         Alert::success('Logout', 'Anda berhasil logout!')->autoClose(2000);
 
         return redirect()->route('login');
