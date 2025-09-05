@@ -11,11 +11,9 @@ class HospitalsController extends Controller
 {
     public function index()
     {
-        // Tabel akan diisi via DataTables AJAX -> tidak perlu lempar $hospitals ke view
         return view('pages.hospitals');
     }
 
-    // Endpoint untuk DataTables (client-side)
     public function data()
     {
         $rows = Hospitals::query()

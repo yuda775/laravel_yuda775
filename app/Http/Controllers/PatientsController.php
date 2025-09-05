@@ -43,7 +43,6 @@ class PatientsController extends Controller
         }
     }
 
-    // Perbaiki parameter agar sesuai route-model binding default: {patient}
     public function update(Request $request, Patients $patient)
     {
         $validated = $request->validate([
@@ -64,7 +63,6 @@ class PatientsController extends Controller
         }
     }
 
-    // Pakai binding supaya DELETE /patients/{patient} langsung resolve model
     public function destroy(Patients $patient)
     {
         try {

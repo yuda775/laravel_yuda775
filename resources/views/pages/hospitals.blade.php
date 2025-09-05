@@ -52,10 +52,14 @@
 
 @push('script')
     <script>
+         $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
+        });
+
         $(document).ready(function () {
             const table = $('#dataTable').DataTable({
                 processing: true,
-                serverSide: false, // set true jika nanti pindah ke Yajra (server-side)
+                serverSide: false,
                 ajax: {
                     url: '/hospitals/data',
                     type: 'GET',
@@ -103,7 +107,6 @@
                 }
             });
 
-            // Edit (delegation, karena row dinamis)
             $(document).on('click', '.edit-btn', function () {
                 const hospitalId = $(this).data('id');
 
@@ -126,7 +129,6 @@
                 });
             });
 
-            // Delete (delegation)
             $(document).on('click', '.btn-delete', function () {
                 const hospitalId = $(this).data('id');
 
